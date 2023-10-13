@@ -1,3 +1,2 @@
-header --> internal hyperlinking
 the recommandations part is showing fruits using the category of the item, change it accordingly
 shopkeeper side ka interface ready karna hai
