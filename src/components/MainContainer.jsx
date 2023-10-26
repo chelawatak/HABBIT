@@ -46,7 +46,6 @@ const MainContainer = () => {
           data={foodItems?.filter((n) => n.category === "fruits")}
         />
       </section>
-
       <MenuContainer />
 
       {cartShow && <CartContainer />}

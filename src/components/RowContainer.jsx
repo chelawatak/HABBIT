@@ -10,13 +10,17 @@ const RowContainer = ({ flag, data, scrollValue }) => {
 
   const [items, setItems] = useState([]);
 
-  const [{ cartItems }, dispatch] = useStateValue();
+  const [{ cartItems, user }, dispatch] = useStateValue();
+  
+  const [cate, setCate] = useState();
 
   const addtocart = () => {
     dispatch({
       type: actionType.SET_CARTITEMS,
       cartItems: items,
     });
+    // console.log(items);
+    // console.log(user.displayName);
     localStorage.setItem("cartItems", JSON.stringify(items));
   };
 

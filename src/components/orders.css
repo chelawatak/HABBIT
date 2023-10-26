@@ -1,0 +1,44 @@
+.itemNum {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: 1vw;
+}
+
+.ordersTitle {
+    font-size: 5vh;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+.outerCard{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.orderCard {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4vh;
+    margin-right: 4vh;
+    /* border: 1px solid black; */
+    padding: 1.5vh;
+    flex-wrap: wrap;
+
+}
+
+.innerCard {
+    display: flex;
+    flex-direction: row;
+    margin-right: 4vh;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 4vh;
+    width: 79vh;
+    margin-bottom: 2vh;
+}
+
+.imageCard {
+    height: 15vh;
+    margin-right: 5vw;
+}
