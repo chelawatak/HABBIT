@@ -25,13 +25,13 @@ export const heroData = [
     price: "8.25",
     imageSrc: C3,
   },
-  {
-    id: 4,
-    name: "Cold Drinks",
-    decp: "Refreshments",
-    price: "5.25",
-    imageSrc: Fi1,
-  },
+  // {
+  //   id: 4,
+  //   name: "Cold Drinks",
+  //   decp: "Refreshments",
+  //   price: "5.25",
+  //   imageSrc: Fi1,
+  // },
 ];
 
 export const categories = [
