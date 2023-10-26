@@ -61,7 +61,7 @@ const CartItem = ({ item, setFlag, flag }) => {
 
       {/* name section */}
       <div className="flex flex-col gap-2">
-        <p className="text-base text-gray-50">{item?.title}</p>
+        <p className="text-base text-gray-50">{item?.title} - {item?.category}</p>
         <p className="text-sm block text-gray-300 font-semibold">
         ₹ {parseFloat(item?.price) * qty}
         </p>

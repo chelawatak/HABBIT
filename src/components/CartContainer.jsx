@@ -7,6 +7,7 @@ import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 import EmptyCart from "../img/emptyCart.svg";
 import CartItem from "./CartItem";
+import { placeOrder } from "../utils/firebaseFunctions";
 
 const CartContainer = () => {
   const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
@@ -21,22 +22,23 @@ const CartContainer = () => {
     });
   };
 
+  //to automatically remove cartshow
 
-  function useOutsideAlerter(ref) {
-    useEffect(() => {
-      function handleClickOutside(event) {
-        if (ref.current && !ref.current.contains(event.target)) {
-          showCart();
-        }
-      }
-      // Bind the event listener
-      document.addEventListener("mousedown", handleClickOutside);
-      return () => {
-        // Unbind the event listener on clean up
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
-    }, [ref]);
-  }
+  // function useOutsideAlerter(ref) {
+  //   useEffect(() => {
+  //     function handleClickOutside(event) {
+  //       if (ref.current && !ref.current.contains(event.target)) {
+  //         showCart();
+  //       }
+  //     }
+  //     // Bind the event listener
+  //     document.addEventListener("mousedown", handleClickOutside);
+  //     return () => {
+  //       // Unbind the event listener on clean up
+  //       document.removeEventListener("mousedown", handleClickOutside);
+  //     };
+  //   }, [ref]);
+  // }
 
   useEffect(() => {
     let totalPrice = cartItems.reduce(function (accumulator, item) {
@@ -57,8 +59,27 @@ const CartContainer = () => {
     localStorage.setItem("cartItems", JSON.stringify([]));
   };
 
+  const [isPlaced, setIsPlaced] = useState(false);
 
-  useOutsideAlerter(wrapperRef)
+  const handleOrder = () => {
+    setIsPlaced(true);
+    const data = {
+      id: `${Date.now()}${user.displayName}`,
+      name: user.displayName,
+      items: cartItems,
+    }
+    placeOrder(data);
+    setTimeout(() => {
+      clearCart();
+      setIsPlaced(false);
+      alert("Order Placed SuccessFully !!");
+    }, 3000);
+  }
+  
+  
+  //to automatically remove cartshow
+  
+  // useOutsideAlerter(wrapperRef)
   
   return (
     <motion.div
@@ -121,11 +142,12 @@ const CartContainer = () => {
               </p>
             </div>
 
-            {user ? (
+            {user ? ( !isPlaced &&
               <motion.button
                 whileTap={{ scale: 0.8 }}
                 type="button"
                 className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+                onClick={handleOrder}
               >
                 Check Out
               </motion.button>
