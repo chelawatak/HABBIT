@@ -70,7 +70,7 @@ const Orders = () => {
         </div>
       )}
       
-      {user && user.email === "vinayakfoods123456@gmail.com" && (
+      {user && user.email === "vinayakfoods.lnmiit@gmail.com" && (
         <div className="outerCard">
           {orders &&
             orders.length > 0 &&
@@ -124,7 +124,7 @@ const Orders = () => {
         </div>
       )}
 
-      {user && user.email === "babajuice123456@gmail.com" && (
+      {user && user.email === "babajuice.lnmiit@gmail.com" && (
         <div className="outerCard">
           {orders &&
             orders.length > 0 &&
@@ -178,7 +178,7 @@ const Orders = () => {
         </div>
       )}
 
-      {user && user.email === "amulfoodparlor123456@gmail.com" && (
+      {user && user.email === "amulparlour.lnmiit@gmail.com" && (
         <div className="outerCard">
           {orders &&
             orders.length > 0 &&

@@ -7,14 +7,14 @@ import { app } from "../firebase.config";
 
 import Logo from "../img/logo.png";
 import Avatar from "../img/avatar.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 
 const Header = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
-
+  let navigate = useNavigate();
   const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
 
   const [isMenu, setIsMenu] = useState(false);
@@ -43,6 +43,7 @@ const Header = () => {
       type: actionType.SET_USER,
       user: null,
     });
+    navigate("/");
   };
 
   const showCart = () => {
@@ -122,7 +123,7 @@ const Header = () => {
                   </Link>
                 )}
                 {
-                  user && (user.email === "habbit.lnmiit@gmail.com" || user.email === "vinayakfoods123456@gmail.com" || user.email === "babajuice123456@gmail.com" || user.email === "amulfoodparlor123456@gmail.com") && (
+                  user && (user.email === "habbit.lnmiit@gmail.com" || user.email === "vinayakfoods.lnmiit@gmail.com" || user.email === "babajuice.lnmiit@gmail.com" || user.email === "amulparlour.lnmiit@gmail.com") && (
                     <Link to={"/orders"}>
                     <p
                       className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
@@ -190,7 +191,7 @@ const Header = () => {
               )}
 
               {
-                user && (user.email === "habbit.lnmiit@gmail.com" || user.email === "vinayakfoods123456@gmail.com" || user.email === "babajuice123456@gmail.com" || user.email === "amulfoodparlor123456@gmail.com") && (
+                user && (user.email === "habbit.lnmiit@gmail.com" || user.email === "vinayakfoods.lnmiit@gmail.com" || user.email === "babajuice.lnmiit@gmail.com" || user.email === "amulparlour.lnmiit@gmail.com") && (
                   <Link to={"/orders"}>
                   <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
                     Orders
