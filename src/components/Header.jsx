@@ -67,18 +67,18 @@ const Header = () => {
             exit={{ opacity: 0, x: 200 }}
             className="flex items-center gap-12 "
           >
-            <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <Link to={'/'} className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
               Home
-            </li>
-            <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            </Link>
+            <a href={'#menu'} className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
               Menu
-            </li>
-            <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            </a>
+            <Link to={'/aboutUs'} className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
               About Us
-            </li>
-            <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            </Link>
+            {/* <Link to={'/'} className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
               Service
-            </li>
+            </Link> */}
           </motion.ul>
 
           <div
@@ -178,30 +178,33 @@ const Header = () => {
               )}
 
               <ul className="flex flex-col ">
-                <li
+                <Link
+                  to={'/'}
                   className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
                   onClick={() => setIsMenu(false)}
                 >
                   Home
-                </li>
-                <li
+                </Link>
+                <a
+                  href="#menu"
                   className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
                   onClick={() => setIsMenu(false)}
                 >
                   Menu
-                </li>
-                <li
+                </a>
+                <Link 
+                  to={'/aboutUs'}
                   className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
                   onClick={() => setIsMenu(false)}
                 >
                   About Us
-                </li>
-                <li
+                </Link>
+                {/* <li
                   className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
                   onClick={() => setIsMenu(false)}
                 >
                   Service
-                </li>
+                </li> */}
               </ul>
 
               <p

@@ -27,7 +27,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
   useEffect(() => {
     addtocart();
   }, [items]);
-
+  // console.log(data);
   return (
     <div
       ref={rowContainer}
@@ -42,6 +42,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
           <div
             key={item?.id}
             className="w-275 h-[175px] min-w-[275px] md:w-300 md:min-w-[300px]  bg-cardOverlay rounded-lg py-2 px-4  my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative"
+            style={{width: "370px", height: "200px"}}
           >
             <div className="w-full flex items-center justify-between">
               <motion.div
@@ -72,7 +73,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
               </p>
               <div className="flex items-center gap-8">
                 <p className="text-lg text-headingColor font-semibold">
-                  <span className="text-sm text-red-500">$</span> {item?.price}
+                  <span className="text-sm text-red-500"><span style={{fontSize: "15px", color: "rgb(46 46 46 / var(--tw-text-opacity))"}}>₹</span></span> {item?.price}
                 </p>
               </div>
             </div>

@@ -72,7 +72,7 @@ const HomeContainer = () => {
                 </p>
 
                 <p className="text-sm font-semibold text-headingColor">
-                  <span className="text-xs text-red-600">$</span> {n.price}
+                  <span className="text-xs text-red-600"><span style={{fontSize: "15px", color: "rgb(46 46 46 / var(--tw-text-opacity))"}}>₹</span></span> {n.price}
                 </p>
               </div>
             ))}

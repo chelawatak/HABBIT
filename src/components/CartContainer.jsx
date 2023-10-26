@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { RiRefreshFill } from "react-icons/ri";
 
@@ -12,6 +12,7 @@ const CartContainer = () => {
   const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
   const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
+  const wrapperRef = useRef(null)
 
   const showCart = () => {
     dispatch({
@@ -20,13 +21,32 @@ const CartContainer = () => {
     });
   };
 
+
+  function useOutsideAlerter(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          showCart();
+        }
+      }
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  }
+
   useEffect(() => {
     let totalPrice = cartItems.reduce(function (accumulator, item) {
       return accumulator + item.qty * item.price;
     }, 0);
     setTot(totalPrice);
-    console.log(tot);
-  }, [tot, flag]);
+    // console.log(tot);
+  },
+   [tot, flag, cartItems]
+  );
 
   const clearCart = () => {
     dispatch({
@@ -37,12 +57,16 @@ const CartContainer = () => {
     localStorage.setItem("cartItems", JSON.stringify([]));
   };
 
+
+  useOutsideAlerter(wrapperRef)
+  
   return (
     <motion.div
       initial={{ opacity: 0, x: 200 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 200 }}
       className="fixed top-0 right-0 w-full md:w-375 h-screen bg-white drop-shadow-md flex flex-col z-[101]"
+      ref={wrapperRef}
     >
       <div className="w-full flex items-center justify-between p-4 cursor-pointer">
         <motion.div whileTap={{ scale: 0.75 }} onClick={showCart}>
@@ -81,7 +105,7 @@ const CartContainer = () => {
           <div className="w-full flex-1 bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly px-8 py-2">
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-400 text-lg">Sub Total</p>
-              <p className="text-gray-400 text-lg">$ {tot}</p>
+              <p className="text-gray-400 text-lg">₹ {tot}</p>
             </div>
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-400 text-lg">Delivery</p>
@@ -93,7 +117,7 @@ const CartContainer = () => {
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-200 text-xl font-semibold">Total</p>
               <p className="text-gray-200 text-xl font-semibold">
-                ${tot}
+              ₹{tot}
               </p>
             </div>
 
