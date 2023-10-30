@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { RiRefreshFill } from "react-icons/ri";
-
+// import { useLocation } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
@@ -39,7 +39,7 @@ const CartContainer = () => {
   //     };
   //   }, [ref]);
   // }
-
+  // const location = useLocation();
   useEffect(() => {
     let totalPrice = cartItems.reduce(function (accumulator, item) {
       return accumulator + item.qty * item.price;
@@ -74,6 +74,11 @@ const CartContainer = () => {
       setIsPlaced(false);
       alert("Order Placed SuccessFully !!");
     }, 3000);
+    // location.reload();
+    setTimeout(() => {
+      window.location.reload(false);
+    },5000)
+
   }
   
   
