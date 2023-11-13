@@ -162,9 +162,9 @@ const Header = () => {
           )}
         </div>
 
-        <Link to={"/"} className="flex items-center gap-2">
-          <img src={Logo} className="w-8 object-cover" alt="logo" />
-          <p className="text-headingColor text-xl font-bold"> City</p>
+        <Link to={"/"} className="flex items-center ml-1">
+          <img src={Logo} className="w-10 object-cover" alt="logo" />
+          {/* <p className="text-headingColor text-xl font-bold"> City</p> */}
         </Link>
 
         <div className="relative">

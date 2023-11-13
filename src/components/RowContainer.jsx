@@ -45,18 +45,18 @@ const RowContainer = ({ flag, data, scrollValue }) => {
         data.map((item) => (
           <div
             key={item?.id}
-            className="w-275 h-[175px] min-w-[275px] md:w-300 md:min-w-[300px]  bg-cardOverlay rounded-lg py-2 px-4  my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative"
-            style={{minWidth: "380px", height: "200px"}}
+            className="min-w-[380px] min-h-[270px] md:min-w-[300px] bg-cardOverlay rounded-lg py-2 px-4  my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative"
+            style={{minWidth: "19rem", height: "200px"}}
           >
             <div className="w-full flex items-center justify-between">
               <motion.div
-                className="w-40 h-40 -mt-8 drop-shadow-2xl"
+                className="w-40 h-40 mt-8 drop-shadow-2xl"
                 whileHover={{ scale: 1.2 }}
               >
                 <img
                   src={item?.imageURL}
                   alt=""
-                  className="w-full h-full object-contain"
+                  className="object-contain w-[12rem] h-[8rem] ml-[-15px]"
                 />
               </motion.div>
               <motion.div
