@@ -44,6 +44,9 @@ const Orders = () => {
                             className="imageCard"
                           />
                           <div className="itemdata">
+                            <div className="itemTitle">
+                              Order ID - {item.id}
+                            </div>
                             <div className="shopName">
                               ShopName - {items.category}
                             </div>
@@ -69,7 +72,7 @@ const Orders = () => {
             })}
         </div>
       )}
-      
+
       {user && user.email === "vinayakfoods.lnmiit@gmail.com" && (
         <div className="outerCard">
           {orders &&
@@ -91,7 +94,11 @@ const Orders = () => {
                                     alt={items.title}
                                     className="imageCard"
                                   />
+
                                   <div className="itemdata">
+                                    <div className="itemTitle">
+                                      Order ID - {item.id}
+                                    </div>
                                     <div className="shopName">
                                       ShopName - {items.category}
                                     </div>
@@ -146,6 +153,9 @@ const Orders = () => {
                                     className="imageCard"
                                   />
                                   <div className="itemdata">
+                                    <div className="itemTitle">
+                                      Order ID - {item.id}
+                                    </div>
                                     <div className="shopName">
                                       ShopName - {items.category}
                                     </div>
@@ -200,6 +210,9 @@ const Orders = () => {
                                     className="imageCard"
                                   />
                                   <div className="itemdata">
+                                    <div className="itemTitle">
+                                      Order ID - {item.id}
+                                    </div>
                                     <div className="shopName">
                                       ShopName - {items.category}
                                     </div>
