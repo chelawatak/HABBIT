@@ -45,18 +45,18 @@ const RowContainer = ({ flag, data, scrollValue }) => {
         data.map((item) => (
           <div
             key={item?.id}
-            className="w-275 h-[175px] min-w-[275px] md:w-300 md:min-w-[300px]  bg-cardOverlay rounded-lg py-2 px-4  my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative"
-            style={{width: "400px", height: "200px"}}
+            className="min-w-[380px] min-h-[270px] md:min-w-[300px] bg-cardOverlay rounded-lg py-2 px-4  my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative"
+            style={{minWidth: "19rem", height: "200px"}}
           >
             <div className="w-full flex items-center justify-between">
               <motion.div
-                className="w-40 h-40 -mt-8 drop-shadow-2xl"
+                className="w-40 h-40 mt-8 drop-shadow-2xl"
                 whileHover={{ scale: 1.2 }}
               >
                 <img
                   src={item?.imageURL}
                   alt=""
-                  className="w-full h-full object-contain"
+                  className="object-contain w-[12rem] h-[8rem] ml-[-15px]"
                 />
               </motion.div>
               <motion.div
@@ -73,7 +73,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
                 {item?.title}
               </p>
               <p className="mt-1 text-sm text-gray-500">
-                {item?.calories} Calories
+                {item?.category}
               </p>
               <div className="flex items-center gap-8">
                 <p className="text-lg text-headingColor font-semibold">
@@ -87,7 +87,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
         <div className="w-full flex flex-col items-center justify-center">
           <img src={NotFound} className="h-340" />
           <p className="text-xl text-headingColor font-semibold my-2">
-            Items Not Available
+            Login and Order to see Items
           </p>
         </div>
       )}

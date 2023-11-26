@@ -112,7 +112,7 @@ const Header = () => {
                 exit={{ opacity: 0, scale: 0.6 }}
                 className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0"
               >
-                {user && user.email === "habbit.lnmiit@gmail.com" && (
+                {user && (user.email === "habbit.lnmiit@gmail.com" || user.email === "vinayakfoods.lnmiit@gmail.com" || user.email === "babajuice.lnmiit@gmail.com" || user.email === "amulparlour.lnmiit@gmail.com") && (
                   <Link to={"/createItem"}>
                     <p
                       className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
@@ -162,9 +162,9 @@ const Header = () => {
           )}
         </div>
 
-        <Link to={"/"} className="flex items-center gap-2">
-          <img src={Logo} className="w-8 object-cover" alt="logo" />
-          <p className="text-headingColor text-xl font-bold"> City</p>
+        <Link to={"/"} className="flex items-center ml-1">
+          <img src={Logo} className="w-10 object-cover" alt="logo" />
+          {/* <p className="text-headingColor text-xl font-bold"> City</p> */}
         </Link>
 
         <div className="relative">
@@ -182,7 +182,7 @@ const Header = () => {
               exit={{ opacity: 0, scale: 0.6 }}
               className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0"
             >
-              {user && user.email === "habbit.lnmiit@gmail.com" && (
+              {user && (user.email === "habbit.lnmiit@gmail.com" || user.email === "vinayakfoods.lnmiit@gmail.com" || user.email === "babajuice.lnmiit@gmail.com" || user.email === "amulparlour.lnmiit@gmail.com") && (
                 <Link to={"/createItem"}>
                   <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
                     New Item <MdAdd />
