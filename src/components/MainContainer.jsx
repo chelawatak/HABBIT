@@ -49,7 +49,7 @@ const MainContainer = () => {
       })
     })
 
-    const response = await fetch("https://food-reco.onrender.com/recommend",{
+    const response = await fetch("https://backend-habbit.onrender.com",{
       method: "POST",
       headers: {
         "accept": "application/json",
